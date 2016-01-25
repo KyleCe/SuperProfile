@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray91"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/timeout"
+            android:layout_marginTop="26dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="26dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eye_protect_work"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="24dp"
+                android:textColor="@color/black"/>
+            <Spinner
+                android:id="@+id/spinner_eye_protect_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbarStyle="insideInset"
+                android:prompt="@string/eye_protect_work"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="6dp"
+            android:spinnerMode="dropdown"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eye_protect_rest"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"                android:textSize="24dp"
+                android:textColor="@color/black"/>
+            <Spinner
+                android:id="@+id/spinner_eye_protect_rest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:prompt="@string/eye_protect_work"
+                android:layout_marginLeft="6dp"
+                android:spinnerMode="dropdown"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button_start_eye_protect"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_border2"
+            android:text="@string/eye_protect_start"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,193 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragContainer"
+    android:tag="button_fragment_tag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.product.kyle.testforgradle.ProfileFragment">
+    <!--id added for child fragments-->
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/tab01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray91"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:scaleType="fitXY"
+            android:src="@drawable/smart_life" />
+
+        <!--<TableLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal">-->
+
+            <!--<TableRow>-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/profile1"-->
+                    <!--android:layout_width="130dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:layout_marginBottom="16dp"-->
+                    <!--android:layout_marginTop="40dp"-->
+                    <!--android:background="@drawable/bg_border2"-->
+                    <!--android:text="@string/profile_name1"-->
+                    <!--android:textSize="24dp" />-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/apply_profile_one"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="应用" />-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/stop_profile_one"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="停止" />-->
+                <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/service_test_start"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="Start"/>&ndash;&gt;-->
+                <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/service_test_stop"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="Stop"/>&ndash;&gt;-->
+
+            <!--</TableRow>-->
+        <!--</TableLayout>-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/profile1"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_border2"
+                android:text="@string/profile_name1"
+                android:textSize="24dp" />
+
+            <ToggleButton
+                android:id="@+id/profile1_switcher_toggle"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="6dip"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+        <!--<Button-->
+        <!--android:id="@+id/profile1"-->
+        <!--android:layout_width="130dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:background="@drawable/bg_border2"-->
+        <!--android:text="@string/profile_name1"-->
+        <!--android:textSize="24dp"/>-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/profile2"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_border2"
+                android:text="@string/profile_name2"
+                android:textSize="24dp" />
+
+            <ToggleButton
+                android:id="@+id/profile2_switcher_toggle"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="6dip"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/profile3"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_border2"
+                android:text="@string/profile_name3"
+                android:textSize="24dp" />
+
+            <ToggleButton
+                android:id="@+id/profile3_switcher_toggle"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="6dip"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/profile4"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_border2"
+                android:text="@string/profile_name4"
+                android:textSize="24dp" />
+
+            <ToggleButton
+                android:id="@+id/profile4_switcher_toggle"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="6dip"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/weather_cityname_textview"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="35dip"
+
+    android:textColor="@color/title_background"
+
+    android:textSize="20dip"
+
+    android:textStyle="bold"
+    android:singleLine="true"
+    android:divider="@color/red"
+    android:dividerHeight="1px"
+    android:background="@color/white"
+
+    style="?android:attr/spinnerDropDownItemStyle">
+
+</TextView>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>--><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="match_parent"--><!--android:layout_height="35dp"--><!--android:paddingBottom="10dip"--><!--android:paddingLeft="15dip"--><!--android:paddingRight="5dip"--><!--android:paddingTop="10dip">-->
+
+    <!--<TextView--><!--android:id="@+id/item_title"--><!--android:layout_width="wrap_content"--><!--android:layout_alignParentLeft="true"--><!--android:layout_alignParentTop="true"--><!--android:textColor="@color/title_background"--><!--android:layout_height="35dip"--><!--android:textSize="20dip"--><!--android:textStyle="bold" />--><!--&lt;!&ndash;<ImageView&ndash;&gt;--><!--&lt;!&ndash;android:id="@+id/imageView1"&ndash;&gt;--><!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_alignParentRight="true"&ndash;&gt;--><!--&lt;!&ndash;android:layout_centerVertical="true"&ndash;&gt;--><!--&lt;!&ndash;android:layout_marginRight="16dp"&ndash;&gt;--><!--&lt;!&ndash;/>&ndash;&gt;--><!--</LinearLayout>-->
+
+
+    <!---->
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<TextView -->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:id="@+id/text_for_spinner"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="24sp"-->
+<!--android:singleLine="true"-->
+<!--style="?android:attr/spinnerDropDownItemStyle">-->
+
+<!--</TextView>-->

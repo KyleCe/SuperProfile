@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray91"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flux"
+        android:scaleType="fitXY"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="36dp"
+        android:layout_gravity="center_horizontal"
+        >
+        <TextView
+            android:id="@+id/tv_agreement_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:text="@string/agreement_content"
+            android:textSize="16dp"
+            android:layout_gravity="center_horizontal"
+            />
+        <CheckBox
+            android:id="@+id/cb_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            android:text="@string/agreement_read"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            />
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_border2"
+            android:text="@string/flux_start"
+            android:textSize="26dp"
+            android:clickable="false"
+            android:enabled="false"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
