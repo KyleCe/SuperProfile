@@ -32,6 +32,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.product.kyle.testforgradle.R;
+
 public class SecondFragment extends Fragment {
     private static final String TAG = "TestFragment";
 //    private String hello;// = "hello android";

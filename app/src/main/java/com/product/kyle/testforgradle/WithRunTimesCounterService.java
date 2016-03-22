@@ -13,7 +13,7 @@ public class WithRunTimesCounterService extends Service {
 
     int[] wallpapers = new int[]{
             R.drawable.flux2,
-            R.drawable.smart_life,
+            R.drawable.smart_life_circle,
             R.drawable.timeout
     };
 //    WallpaperManager wManager;

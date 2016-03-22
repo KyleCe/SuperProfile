@@ -41,13 +41,14 @@
     </style>
 
     <style name="profile_detail_text_view">
-        <item name="android:background">@drawable/bg_border3</item>
+        <item name="android:background">@drawable/bg_border_detail_text</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">26dp</item>
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
         <item name="android:textColor">@color/black_opaque</item>
         <item name="android:textSize">17dp</item>
-
+        <item name="android:padding">3dp</item>
+        <item name="android:clickable">false</item>
     </style>
 
     <!--title design-->
@@ -80,5 +81,121 @@
         <item name="android:colorForeground">#fff</item>
     </style>
 
+
+    <!--android:layout_width="130dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/bg_border2"-->
+    <!--android:textSize="24dp"-->
+    <!--android:padding="2dp"-->
+    <style name="ProfileButton">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:background">@drawable/bg_border2</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/color_button_text</item>
+    </style>
+
+
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="30dp"-->
+    <!--android:layout_marginLeft="50dp"-->
+    <!--android:checked="false"-->
+    <!--android:layout_gravity="center_vertical"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:background="@drawable/toggle_style"-->
+    <!--android:textOff=""-->
+    <!--android:textOn=""-->
+    <style name="ProfileToggleButton">
+        <item name="android:layout_width">85.8dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:checked">false</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@drawable/toggle_style_detail</item>
+        <item name="android:textOff"></item>
+        <item name="android:textOn"></item>
+    </style>
+
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:checked="false"-->
+    <!--android:padding="3dip"-->
+    <style name="ProfileDetailToggleButton">
+        <item name="android:layout_width">41dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:checked">false</item>
+        <!--<item name="android:padding">3dp</item>-->
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@drawable/toggle_style_detail</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:textOff"></item>
+        <item name="android:textOn"></item>
+    </style>
+
+    <style name="SwitchText">
+        <item name="android:paddingLeft">8px</item>
+        <item name="android:paddingBottom">8px</item>
+        <item name="android:textColor">#FFeeFFee</item>
+        <item name="android:textSize">24dip</item>
+        <item name="android:shadowColor">#BB000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+
+
+
+    <!--<style name="mySwitchStyle">-->
+        <!--<item name="track">@drawable/switch_track_green</item>-->
+        <!--<item name="thumb">@drawable/background_fenced</item>-->
+        <!--<item name="switchTextAppearanceAttrib">@style/mySwitchTextAppearance</item>-->
+        <!--<item name="textOn">ON</item>-->
+        <!--<item name="textOff">OFF</item>-->
+        <!--<item name="pushStyle">false</item>-->
+        <!--<item name="textOnThumb">true</item>-->
+        <!--<item name="thumbExtraMovement">0dp</item>-->
+        <!--<item name="thumbTextPadding">6dp</item>-->
+        <!--<item name="trackTextPadding">6dp</item>-->
+        <!--<item name="switchMinWidth">69dp</item>-->
+        <!--<item name="switchMinHeight">36dp</item>-->
+        <!--<item name="switchPadding">6dp</item>-->
+    <!--</style>-->
+
+    <style name="mySwitchTextAppearance">
+        <item name="textColor">#FFeeFFee</item>
+        <item name="textColorHighlight">#FFeeFFee</item>
+        <item name="textColorHint">#FFeeFFee</item>
+        <item name="textColorLink">#FFeeFFee</item>
+        <item name="textSize">16sp</item>
+        <item name="textStyle">normal</item>
+    </style>
+
+    <!--coming out dialog style-->
+
+    <style name="selectorDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@drawable/item_bg</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimAmount">0.7</item>
+
+    </style>
 
 </resources>

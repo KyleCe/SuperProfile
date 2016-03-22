@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/yes_bg"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/tv_long_click_email_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minLines="3"
+        android:background="@drawable/listitem_view_bg"
+        android:gravity="center_horizontal"
+        android:padding="15dip"
+        android:textColor="@color/black"
+        />
+
+    <View
+        android:id="@+id/delete_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_line"
+        />
+
+    <TextView
+        android:id="@+id/tv_long_click_send_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/listitem_view_bg"
+        android:gravity="center_horizontal"
+        android:padding="15dip"
+        android:textColor="@color/black"
+        android:text="发送"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_line" />
+
+    <TextView
+        android:id="@+id/tv_share_cancle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/listitem_view_bg"
+        android:gravity="center_horizontal"
+        android:padding="15dip"
+        android:text="取消"
+        android:textColor="@color/black"
+        />
+
+</LinearLayout>

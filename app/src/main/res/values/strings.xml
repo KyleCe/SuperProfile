@@ -133,5 +133,6 @@
     <string name="setting_about">关于...</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="title_activity_testing_algorithm">TestingAlgorithm</string>
+    <string name="bug_report">用户反馈，邮件报告</string>
 
 </resources>

@@ -31,7 +31,7 @@ import java.lang.reflect.Method;
 import java.util.Calendar;
 
 public class ProfileFragment extends Fragment {
-    ProfileDetailFragment detailOneFragment;
+    private ProfileDetailFragment detailOneFragment;
     //shared preference
     SharedPreferences preferences;
 
@@ -247,7 +247,9 @@ public class ProfileFragment extends Fragment {
         editor.putInt("KEY_VOLUME_OLD", audioManager.getStreamVolume(AudioManager.STREAM_SYSTEM));
         editor.putInt("KEY_WIFI_OLD", wifiManager.getWifiState());//wifi state: see API guide
         editor.putInt("KEY_RINGER_MODE_OLD", audioManager.getRingerMode());
-        editor.putBoolean("KEY_BLUETOOTH_OLD", bluetoothAdapter.isEnabled());
+
+        // FIXME: 2016/1/27
+//        editor.putBoolean("KEY_BLUETOOTH_OLD", bluetoothAdapter.isEnabled());
         editor.putBoolean("KEY_GPRS_OLD", getMobileDataStatus("getMobileDataEnabled"));//unsure of its working effect
         try {
             editor.putInt("KEY_BRIGHTNESS_OLD", Settings.System.getInt(getActivity().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS));

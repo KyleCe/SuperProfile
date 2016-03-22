@@ -28,12 +28,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.product.kyle.testforgradle.utils.JPushUtil;
+
+import com.product.kyle.testforgradle.utils.DU;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import cn.jpush.android.api.JPushInterface;
 
 //import com.avast.android.dialogs.fragment.SimpleDialogFragment;
 
@@ -103,36 +102,7 @@ public class MainActivity extends FragmentActivity
         boolean isEnabled = Settings.System.getInt(
                 this.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) == 1;
 
-        //// Jpush test
-        testJpush();
     }
-
-    /**
-     * test Jpush
-     */
-    private void testJpush() {
-        //        String udid =  JpushUtil.getImei(getApplicationContext(), "");
-//        Toast.makeText(this,udid,Toast.LENGTH_SHORT).show();
-//
-//        String appKey = JpushUtil.getAppKey(getApplicationContext());
-//        if (null == appKey) appKey = "AppKey异常";
-//
-//        String versionName =  JpushUtil.GetVersion(getApplicationContext());
-
-//        registerMessageReceiver();
-
-
-        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
-        JPushInterface.init(this.getApplication());            // 初始化 JPush
-
-
-//        JPushUtil.setPushTag(this, ""
-//                + getInstance().getUserId());
-
-//        JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
-//        JPushInterface.init(this);     		// 初始化 JPush
-    }
-
 
     /**
      * 在这里获取到每个需要用到的控件的实例，并给它们设置好必要的点击事件。
@@ -239,7 +209,7 @@ public class MainActivity extends FragmentActivity
      */
     public void InitViewPager() {
         mPager = (ViewPager) findViewById(R.id.viewpager);
-        fragmentList = new ArrayList<Fragment>();
+        fragmentList = new ArrayList<>();
         Fragment btFragment = new ProfileFragment();
         Fragment secondFragment = new SecondFragment();
         Fragment thirdFragment = new ThirdFragment();
@@ -531,12 +501,16 @@ public class MainActivity extends FragmentActivity
                 String extras = intent.getStringExtra(KEY_EXTRAS);
                 StringBuilder showMsg = new StringBuilder();
                 showMsg.append(KEY_MESSAGE + " : " + messge + "\n");
-                if (!JPushUtil.isEmpty(extras)) {
-                    showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
-                }
 //                setCostomMsg(showMsg.toString());
             }
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1001) {
+            DU.sd("result", "code:" + resultCode, "data:" + data);
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.product.kyle.testforgradle" >
+    package="com.product.kyle.testforgradle">
 
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,8 +25,8 @@
 
     <service
         android:name=".ApplyProfileOneService"
-        android:enabled="true" >
-        <intent-filter android:label="@string/menuItemStartService" >
+        android:enabled="true">
+        <intent-filter android:label="@string/menuItemStartService">
             <action android:name="com.product.kyle.testforgradle.APPLY_PROFILE_ONE_SERVICE" />
 
             <category android:name="android.intent.category.default" />
@@ -54,104 +54,14 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!-- J-push Required  SDK核心功能 -->
-    <activity
-        android:name="cn.jpush.android.ui.PushActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        <intent-filter>
-            <action android:name="cn.jpush.android.ui.PushActivity" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="com.product.kyle.testforgradle" />
-        </intent-filter>
-    </activity>
-    <!-- J-push Required  SDK核心功能 -->
-
-    <service
-        android:name="cn.jpush.android.service.DownloadService"
-        android:enabled="true"
-        android:exported="false" />
-
-    <!-- J-push Required  SDK核心功能 -->
-    <service
-        android:name="cn.jpush.android.service.PushService"
-        android:enabled="true"
-        android:exported="false" >
-        <intent-filter>
-            <action android:name="cn.jpush.android.intent.REGISTER" />
-            <action android:name="cn.jpush.android.intent.REPORT" />
-            <action android:name="cn.jpush.android.intent.PushService" />
-            <action android:name="cn.jpush.android.intent.PUSH_TIME" />
-        </intent-filter>
-    </service>
-    <!-- J-push Required  SDK核心功能 -->
-    <receiver
-        android:name="cn.jpush.android.service.PushReceiver"
-        android:enabled="true" >
-        <intent-filter android:priority="1000" >
-            <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
-            <!-- Required  显示通知栏 -->
-            <category android:name="com.product.kyle.testforgradle" />
-        </intent-filter>
-        <intent-filter>
-            <action android:name="android.intent.action.USER_PRESENT" />
-            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-        </intent-filter>
-    </receiver>
-
-    <!-- J-push Required  SDK核心功能 -->
-
-    <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
-    <!-- J-push Required  SDK核心功能 -->
-
-
-    <!-- User defined.  For test only  用户自定义的广播接收器 -->
-    <receiver
-        android:name=".MyReceiver"
-        android:enabled="true" >
-        <intent-filter>
-            <action android:name="cn.jpush.android.intent.REGISTRATION" />
-            <!-- Required  用户注册SDK的intent -->
-            <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
-            <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
-            <!-- Required  用户接收SDK消息的intent -->
-            <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
-            <!-- Required  用户接收SDK通知栏信息的intent -->
-            <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
-            <!-- Required  用户打开自定义通知栏的intent -->
-            <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
-            <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
-            <action android:name="cn.jpush.android.intent.CONNECTION" />
-            <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-            <category android:name="com.product.kyle.testforgradle" />
-        </intent-filter>
-    </receiver>
-
-    <!-- J-push Required  SDK核心功能 -->
-    <!-- Required  . Enable it you can get statistics data with channel -->
-    <meta-data
-        android:name="JPUSH_CHANNEL"
-        android:value="developer-default" />
-    <meta-data
-        android:name="JPUSH_APPKEY"
-        android:value="e55b24e680fee780c3f5bb1b" />
-
-    <!-- <service android:name=".ApplyProfileOneService"> -->
-    <!-- <intent-filter> -->
-    <!-- <action android:name="com.product.kyle.ApplyProfileOne"> -->
-    <!-- </action> -->
-    <!-- <category android:name="android.intent.category.default"/> -->
-    <!-- </intent-filter> -->
-    <!-- </service> -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/MyTheme" >
+        android:theme="@style/MyTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -159,41 +69,30 @@
 
                 <action android:name="android.intent.action.SERVICE_STATE" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".ActivityForTest"
-            android:label="CoverActivity"
-            android:theme="@style/Transparent" >
 
-            <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"> -->
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="mailto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
         <service
             android:name=".ApplyProfileService"
             android:enabled="true"
-            android:exported="true" >
-        </service>
+            android:exported="true"></service>
 
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
-            android:exported="true" >
-        </receiver>
+            android:exported="true"></receiver>
 
         <activity
             android:name=".utils.MapActivity"
-            android:label="@string/title_activity_map" >
-        </activity>
+            android:label="@string/title_activity_map"></activity>
         <activity
             android:name=".utils.TestingAlgorithm"
-            android:label="@string/title_activity_testing_algorithm" >
-        </activity>
+            android:label="@string/title_activity_testing_algorithm"></activity>
     </application>
 
 </manifest>

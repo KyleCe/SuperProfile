@@ -1,16 +1,22 @@
 package com.product.kyle.testforgradle;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.product.kyle.testforgradle.utils.MapActivity;
+import com.product.kyle.testforgradle.data.CData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,22 +25,15 @@ import java.util.Map;
 
 public class FourthFragment extends Fragment {
 
+    private Context context;
+    private static Dialog dialog;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_fourth, container, false);//关联布局文件
 
-        TextView tv = (TextView) rootView.findViewById(R.id.tv_on_fourth_fragment);//根据rootView找到button
-
-        //设置按键监听事件
-        tv.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Toast.makeText(FourthFragment.this.getActivity(), "forth is clicked!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        context = FourthFragment.this.getActivity();
 
 //        listView = new ListView(getActivity());
 //        listView.setAdapter(new ArrayAdapter<String>(getActivity()
@@ -53,8 +52,8 @@ public class FourthFragment extends Fragment {
         tv_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MapActivity.class);
-                startActivity(intent);
+                // create email text input dialog
+                showDialog(context);
             }
         });
 
@@ -62,7 +61,72 @@ public class FourthFragment extends Fragment {
         return rootView;
     }
 
-    public void testOfTextViewOnClick(){
+
+    private String emailContent;
+
+    /**
+     * @param context
+     */
+    private void showDialog(Context context) {
+
+        dialog = new Dialog(context, R.style.selectorDialog);
+        dialog.setContentView(R.layout.share_dialog_view);
+
+        EditText contentInput = (EditText) dialog.findViewById(R.id.tv_long_click_email_content);
+
+        // clear input history
+        emailContent = "";
+
+        // check if the item clicked is local me or not
+        contentInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                emailContent = s.toString();
+            }
+        });
+
+        dialog.findViewById(R.id.tv_long_click_send_email).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (TextUtils.isEmpty(emailContent)) return;
+
+//                        // send email
+                        Intent i = new Intent(Intent.ACTION_SEND);
+                        i.setType("message/rfc822");
+                        i.putExtra(Intent.EXTRA_EMAIL, new String[]{CData.EMAIL_ADD});
+                        i.putExtra(Intent.EXTRA_SUBJECT,  "bug report from user of Super Profile");
+                        i.putExtra(Intent.EXTRA_TEXT,emailContent);
+                        try {
+                            startActivity(Intent.createChooser(i, "Send mail..."));
+                        } catch (android.content.ActivityNotFoundException ex) {
+                        } finally {
+                            dialog.dismiss();
+                        }
+                    }
+                });
+
+        dialog.findViewById(R.id.tv_share_cancle).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+    }
+
+
+    public void testOfTextViewOnClick() {
 
         Toast.makeText(FourthFragment.this.getActivity(), "text view clicked", Toast.LENGTH_SHORT).show();
     }
@@ -71,7 +135,6 @@ public class FourthFragment extends Fragment {
         Toast.makeText(FourthFragment.this.getActivity(), "back is clicked!", Toast.LENGTH_SHORT).show();
 
     }
-
 
 
     private ListView listView;
@@ -84,8 +147,7 @@ public class FourthFragment extends Fragment {
 //    }
 
 
-
-    private List<String> getData(){
+    private List<String> getData() {
 
         List<String> data = new ArrayList<String>();
         data.add("测试数据1");

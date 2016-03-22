@@ -31,6 +31,8 @@ import android.widget.SeekBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.product.kyle.testforgradle.utils.SPUtils;
 //import android.widget.ToggleButton.OnCheckedChangeListener;
 
 /**
@@ -192,27 +194,27 @@ public class ProfileDetailFragment extends Fragment {
 
 //        页面上现有ProgressBar控件progressBar，请用书写线程以10秒的的时间完成其进度
 //        显示工作。（9分）
-        final ProgressBar progressBar = null;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int progressBarMax = progressBar.getMax();
-                try{
-                    while(progressBarMax!=progressBar.getProgress())
-                    {
-                        int stepProgress = progressBarMax/10;
-                        int currentProgress =progressBar.getProgress();
-                        progressBar.setProgress(currentProgress+stepProgress);
-                        Thread.sleep(1000);
-                    }
-
-                }catch (InterruptedException e) {
-                    //TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();
+//        final ProgressBar progressBar = null;
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                int progressBarMax = progressBar.getMax();
+//                try{
+//                    while(progressBarMax!=progressBar.getProgress())
+//                    {
+//                        int stepProgress = progressBarMax/10;
+//                        int currentProgress =progressBar.getProgress();
+//                        progressBar.setProgress(currentProgress+stepProgress);
+//                        Thread.sleep(1000);
+//                    }
+//
+//                }catch (InterruptedException e) {
+//                    //TODO Auto-generated catch block
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }).start();
 
     }
 
@@ -761,7 +763,7 @@ public class ProfileDetailFragment extends Fragment {
                     final Intent pickWallpaper = new Intent(Intent.ACTION_SET_WALLPAPER);
                     Intent chooser = Intent.createChooser(pickWallpaper, "chooser_wallpaper");
                     //发送设置壁纸的请求
-                    startActivity(chooser);
+                    getActivity().startActivityForResult(chooser,1001);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -935,7 +937,9 @@ public class ProfileDetailFragment extends Fragment {
     public void onBackPressed() {
         //这里写返回逻辑
 //        getChildFragmentManager().beginTransaction().replace(this, ).commit();
-        Toast.makeText(ProfileDetailFragment.this.getActivity(), "to back press", Toast.LENGTH_SHORT).show();
+
+        // // FIXME: 2016/1/27  NullPointerException
+//        Toast.makeText(ProfileDetailFragment.this.getActivity().getApplicationContext(), "to back press", Toast.LENGTH_SHORT).show();
         Log.d("tobackpressFragmet", " ");
     }
 }

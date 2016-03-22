@@ -9,12 +9,38 @@ android {
         applicationId "com.product.kyle.testforgradle"
         minSdkVersion 15
         targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
+
+//    assemble release
+    productFlavors {
+        "wandoujia" {}
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+//    sign
+    signingConfigs {
+        debug {
+            storeFile file('c:/test/gpackkey_debug.jks')
+            storePassword '123456'
+            keyAlias 'gpack'
+            keyPassword '123456'
+        }
+
+        release {
+            storeFile file('c:/test/gpackkey.jks')
+            storePassword '123456'
+            keyAlias 'gpack'
+            keyPassword '123456'
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -27,6 +53,6 @@ dependencies {
     //    compile 'com.android.support:appcompat-v7:21.0.3'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //    compile 'com.google.android.gms:play-services:4.2.42'
-    compile files('libs/jpush-sdk-release1.6.4.jar')
+//    compile files('libs/jpush-sdk-release1.6.4.jar')
 
 }
