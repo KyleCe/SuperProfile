@@ -762,6 +762,7 @@ public class ProfileDetailFragment extends Fragment {
                 try {
                     final Intent pickWallpaper = new Intent(Intent.ACTION_SET_WALLPAPER);
                     Intent chooser = Intent.createChooser(pickWallpaper, "chooser_wallpaper");
+
                     //发送设置壁纸的请求
                     getActivity().startActivityForResult(chooser,1001);
                 } catch (Exception e) {
