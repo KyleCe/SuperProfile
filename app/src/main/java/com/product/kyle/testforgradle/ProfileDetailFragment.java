@@ -9,13 +9,17 @@ package com.product.kyle.testforgradle;
 
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -26,13 +30,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.product.kyle.testforgradle.utils.SPUtils;
+import com.product.kyle.testforgradle.utils.BitmapU;
+import com.product.kyle.testforgradle.utils.DU;
+
+import java.io.File;
 //import android.widget.ToggleButton.OnCheckedChangeListener;
 
 /**
@@ -174,6 +180,7 @@ public class ProfileDetailFragment extends Fragment {
         return rootView;
     }
 
+    private int profileType = 0;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -182,39 +189,15 @@ public class ProfileDetailFragment extends Fragment {
 
         getControlItem();//get control view item by findViewById
 
-        InitialParamByTabId(preferences.getInt("ProfileTabId", NOT_SET));
+        profileType = preferences.getInt("ProfileTabId", NOT_SET);
+
+        InitialParamByTabId(profileType);
 
         setDefaultParams();
 
         setControlItemState();
 
         setOnViewItemListeners();
-
-//        ITelephony phone = ITelephony.Stub.asInterface(ServiceManager.getService("phone"));
-
-//        页面上现有ProgressBar控件progressBar，请用书写线程以10秒的的时间完成其进度
-//        显示工作。（9分）
-//        final ProgressBar progressBar = null;
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                int progressBarMax = progressBar.getMax();
-//                try{
-//                    while(progressBarMax!=progressBar.getProgress())
-//                    {
-//                        int stepProgress = progressBarMax/10;
-//                        int currentProgress =progressBar.getProgress();
-//                        progressBar.setProgress(currentProgress+stepProgress);
-//                        Thread.sleep(1000);
-//                    }
-//
-//                }catch (InterruptedException e) {
-//                    //TODO Auto-generated catch block
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }).start();
 
     }
 
@@ -758,13 +741,15 @@ public class ProfileDetailFragment extends Fragment {
             public void onClick(View view) {
 
 
+                storeCurrentToFile(true);
+
                 //生成一个设置壁纸的请求
                 try {
                     final Intent pickWallpaper = new Intent(Intent.ACTION_SET_WALLPAPER);
                     Intent chooser = Intent.createChooser(pickWallpaper, "chooser_wallpaper");
 
                     //发送设置壁纸的请求
-                    getActivity().startActivityForResult(chooser,1001);
+                    startActivityForResult(chooser, 1001);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -825,6 +810,30 @@ public class ProfileDetailFragment extends Fragment {
                 }
             }
         });
+    }
+
+    /**
+     *
+     * */
+    private void storeCurrentToFile(boolean oldWallpaper) {
+
+        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
+        final Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+
+        if (wallpaperDrawable == null) return;
+
+        Bitmap bitmap = BitmapU.drawableToBitmap(wallpaperDrawable);
+
+        String path = Environment.getExternalStorageDirectory().toString()+ File.separator + "Image" + File.separator;
+
+
+        File file = new File(path, "wallpaper" + profileType + (oldWallpaper ? "old" : "new") + ".jpg");
+        BitmapU.storeBitmapToFile(bitmap, file.toString());
+
+        DU.sd("bitmap convert","path:" + path, "file" + file.toString());
+
+//        String cacheDir = BitmapU
+
     }
 
     public void onSaveButtonConfirm() {
@@ -942,5 +951,11 @@ public class ProfileDetailFragment extends Fragment {
         // // FIXME: 2016/1/27  NullPointerException
 //        Toast.makeText(ProfileDetailFragment.this.getActivity().getApplicationContext(), "to back press", Toast.LENGTH_SHORT).show();
         Log.d("tobackpressFragmet", " ");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        DU.sd("result", requestCode);
     }
 }
